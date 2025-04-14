@@ -28,8 +28,8 @@ Key features of our model include:
 ### Prerequisites
 
 - Python 3.8+
-- TensorFlow or PyTorch (depending on your implementation)
-- NumPy, Pandas, Matplotlib, etc.
+- TensorFlow (keras)
+- NumPy, Pandas, Matplotlib
 
 Install dependencies:
 
