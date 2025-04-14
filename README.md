@@ -4,7 +4,7 @@ This repository contains the code and resources associated with the paper:
 
 **"Additive Attention for Vetting Transiting Exoplanet Candidates"**  
 (Accepted for publication in *The Astronomical Journal*)  
-[DOI to be added once available]
+[![DOI](https://zenodo.org/badge/919767503.svg)](https://doi.org/10.5281/zenodo.15212407)
 
 ## 🛰️ Overview
 
@@ -74,13 +74,19 @@ If you use this code for your research, please cite:
 ```bibtex
 @article{hernandez2025additive,
   title={Additive Attention for Vetting Transiting Exoplanet Candidates},
-  author={Hernández Carnerero, Àlvar and [Co-authors]},
+  author={Hernàndez-Carnerero, Àlvar and Sànchez-Marrè, Miquel and Morales, Juan Carlos},
   journal={The Astronomical Journal},
   year={2025},
-  note={Accepted},
-  doi={10.XXXX/zenodo.XXXXXXX}
+  note={Accepted}
 }
 ```
+
+## 👥 Code Author
+
+- Alvar Hernandez Carnerero – [@alvarhc2](https://github.com/alvarhc2)  
+  PhD Candidate in Artificial Intelligence  
+  Universitat Politècnica de Catalunya (UPC)  
+  [alvar.hernandez@upc.edu]
 
 ## 🙌 Acknowledgments
 
