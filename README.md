@@ -2,7 +2,9 @@
 
 This repository contains the code and resources associated with the paper:
 
-**"Additive Attention for Vetting Transiting Exoplanet Candidates"**  
+**"Additive Attention for Vetting Transiting Exoplanet Candidates"**
+**Àlvar Hernández-Carnerero, Miquel Sànchez-Marrè, Juan Carlos Morales**
+
 (Accepted for publication in *The Astronomical Journal*)  
 [![DOI](https://zenodo.org/badge/919767503.svg)](https://doi.org/10.5281/zenodo.15212407)
 
