@@ -3,6 +3,7 @@
 This repository contains the code and resources associated with the paper:
 
 **"Additive Attention for Vetting Transiting Exoplanet Candidates"**
+
 **Àlvar Hernández-Carnerero, Miquel Sànchez-Marrè, Juan Carlos Morales**
 
 (Accepted for publication in *The Astronomical Journal*)  
