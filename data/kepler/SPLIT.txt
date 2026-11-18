@@ -1,0 +1,6 @@
+Frozen 80/10/10 indices from random seed 0.
+Algorithm: randbelow.
+randbelow is Fisher-Yates with Random._randbelow, matching random.shuffle on Python 3.10.
+multiply is the older int(random() * (i + 1)) shuffle.
+The exporter kept the algorithm whose positive counts match the paper:
+train 2906, validation 328, test 366.

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exoplanet-vetting"
+version = "1.0.0"
+description = "Additive attention for vetting transiting exoplanet candidates"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10,<3.14"
+authors = [
+    {name = "Àlvar Hernández-Carnerero", email = "alvar.hernandez@upc.edu"},
+]
+keywords = [
+    "exoplanets",
+    "kepler",
+    "tess",
+    "lstm",
+    "attention",
+    "light-curves",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+dependencies = [
+    "numpy>=1.24",
+    "tensorflow>=2.16",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.7", "pillow>=10"]
+dev = ["matplotlib>=3.7", "pillow>=10", "pytest>=7.4"]
+
+[project.scripts]
+exoplanet-vetting = "exoplanet_vetting.run:main"
+
+[project.urls]
+Paper = "https://doi.org/10.3847/1538-3881/add2f1"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

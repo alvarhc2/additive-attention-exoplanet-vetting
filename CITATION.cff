@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: Additive Attention for Vetting Transiting Exoplanet Candidates
+message: If you use this software, please cite the article.
+type: software
+authors:
+  - family-names: Hernández-Carnerero
+    given-names: Àlvar
+    affiliation: Universitat Politècnica de Catalunya
+    email: alvar.hernandez@upc.edu
+  - family-names: Sànchez-Marrè
+    given-names: Miquel
+    affiliation: Universitat Politècnica de Catalunya
+  - family-names: Morales
+    given-names: Juan Carlos
+    affiliation: Institute of Space Sciences (ICE, CSIC)
+license: MIT
+repository-code: https://github.com/alvarhc2/additive-attention-exoplanet-vetting
+preferred-citation:
+  type: article
+  title: Additive Attention for Vetting Transiting Exoplanet Candidates
+  authors:
+    - family-names: Hernández-Carnerero
+      given-names: Àlvar
+    - family-names: Sànchez-Marrè
+      given-names: Miquel
+    - family-names: Morales
+      given-names: Juan Carlos
+  journal: The Astronomical Journal
+  year: 2025
+  doi: 10.3847/1538-3881/add2f1
+  url: https://doi.org/10.3847/1538-3881/add2f1
