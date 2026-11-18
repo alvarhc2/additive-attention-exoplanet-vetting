@@ -10,6 +10,12 @@ Companion code for Hernández-Carnerero, Sànchez-Marrè, and Morales, *The Astr
 A **threshold crossing event** is a periodic dip in a star's brightness. Most dips are not planets. This repository trains the networks from the paper that separate **planet candidates** from **non-planet candidates** on the same preprocessed Kepler and TESS views used for that comparison.
 
 <p align="center">
+  <img src="docs/figures/transit.gif" alt="A planet crossing its star while the measured brightness drops" width="720">
+</p>
+
+<p align="center"><i>The planet keeps circling a hot, blue-white star. Once each orbit it passes in front, and the brightness falls in a smooth dip, drawn deeper than a real transit so the shape is easy to see. The points are one measurement of that pass. These frames are drawn for this repository.</i></p>
+
+<p align="center">
   <img src="docs/figures/phase_fold.gif" alt="A light curve folding in phase until the transit lines up" width="720">
 </p>
 
@@ -229,4 +235,4 @@ TESS arrays, train then validation then test:
 }
 ```
 
-The architecture diagrams, the mean light curves, the scatter plots, and the attention panels are the figures from the article. The phase-folding animation was made for this repository. The software is released under the MIT license. The article remains with the publisher.
+The architecture diagrams, the mean light curves, the scatter plots, and the attention panels are the figures from the article. The transit animation and the phase-folding animation were made for this repository. The software is released under the MIT license. The article remains with the publisher.
