@@ -11,15 +11,15 @@ A **threshold crossing event** is a periodic dip in a star's brightness. Most di
 
 <p align="center">
   <img src="docs/figures/transit.gif" alt="A planet crossing its star while the measured brightness drops" width="720">
+  <br>
+  <sub><i>The planet circles a hot, blue-white star. Once each orbit it passes in front, and the brightness falls. The points are several of those passes stacked on the same transit. These frames are drawn for this repository.</i></sub>
 </p>
-
-<p align="center"><i>The planet keeps circling a hot, blue-white star. Once each orbit it passes in front, and the brightness falls in a smooth dip, drawn deeper than a real transit so the shape is easy to see. The points are one measurement of that pass. These frames are drawn for this repository.</i></p>
 
 <p align="center">
   <img src="docs/figures/phase_fold.gif" alt="A light curve folding in phase until the transit lines up" width="720">
+  <br>
+  <sub><i>Phase folding stacks every orbit on top of the next one. The transit, in orange, lands at the center. The motion follows the sketch in Shallue &amp; Vanderburg's Astronet repository. These frames are drawn for this repository.</i></sub>
 </p>
-
-<p align="center"><i>Phase folding stacks every orbit on top of the next one. The transit, in orange, lands on the same phase. The motion follows the sketch in Shallue &amp; Vanderburg's Astronet repository. These frames are drawn for this repository.</i></p>
 
 ## What one example looks like
 

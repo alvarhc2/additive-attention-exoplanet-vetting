@@ -24,9 +24,9 @@ def save_phase_fold_gif(path: str | Path, frames: int = 48) -> None:
     orbits = 4
     samples = 720
     time = np.linspace(0.0, orbits, samples, endpoint=False)
+    # Mid-transit at phase 0.5, so the dip sits in the middle once the orbits stack.
     phase = np.mod(time, 1.0)
-    # Transit centered at phase 0, drawn across the fold boundary.
-    distance = np.minimum(phase, 1.0 - phase)
+    distance = np.abs(phase - 0.5)
     transit = distance < 0.04
     flux = 1.0 + 0.004 * np.sin(2 * np.pi * time * 1.7)
     flux -= 0.018 * np.exp(-0.5 * (distance / 0.012) ** 2)
