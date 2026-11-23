@@ -195,7 +195,7 @@ Attention on the published Kepler model sits on the transit. The peak is shifted
 
 ## Run the code
 
-Python 3.10, 3.11, or 3.12. TensorFlow does not publish a 3.14 wheel, which is why 3.14 is left out.
+Python 3.10, 3.11, 3.12, or 3.13.
 
 ```bash
 python -m venv .venv
@@ -272,8 +272,6 @@ TESS arrays, train then validation then test:
 | `depth_change` | (14480,) | Aperture depth change, already standardized |
 | `label` | (14480,) | 1 planet candidate, 0 otherwise |
 | `split` | (14480,) | 0 train, 1 validation, 2 test |
-
-`scripts/export_views.py` is the one-time conversion from the study pickles. It checks the row counts, the view lengths, and the Kepler positive counts before it writes.
 
 ## Citation
 

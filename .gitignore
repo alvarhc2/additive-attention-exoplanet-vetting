@@ -6,3 +6,7 @@ venv/
 outputs/
 *.egg-info/
 .DS_Store
+
+# Local conversion from the study pickles, and a parameter-count printout
+# already covered by tests. Readers do not have those pickles.
+scripts/
