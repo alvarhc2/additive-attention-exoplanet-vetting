@@ -7,7 +7,7 @@
 
 Companion code for Hernández-Carnerero, Sànchez-Marrè, and Morales, *The Astronomical Journal* (2025), [doi:10.3847/1538-3881/add2f1](https://doi.org/10.3847/1538-3881/add2f1).
 
-A **threshold crossing event** is a periodic dip in a star's brightness. Most dips are not planets. This repository trains the networks from the paper that separate **planet candidates** from **non-planet candidates** on the same preprocessed Kepler and TESS views used for that comparison.
+A **threshold crossing event** is a periodic dip in a star's brightness. Most dips are not planets. This repository trains the networks from the paper that separate **planet candidates** from **non-planet candidates** on the same preprocessed [Kepler](https://science.nasa.gov/mission/kepler/) and [TESS](https://science.nasa.gov/mission/tess/) views used for that comparison.
 
 <p align="center">
   <img src="docs/figures/transit.gif" alt="A planet crossing its star while the measured brightness drops" width="720">
@@ -26,28 +26,56 @@ A **threshold crossing event** is a periodic dip in a star's brightness. Most di
 Kepler examples are two binned views of a phase-folded light curve. The **global view** has **2001** bins and covers the whole orbit. The **local view** has **201** bins and covers four transit durations on either side of the mid-transit. TESS examples are shorter, because a sector is about 27 days rather than four years: global **201**, local **61**, plus a **secondary view** of 61 bins centered on the strongest out-of-transit dip, and one scalar, the **depth change** between two apertures.
 
 <p align="center">
-  <img src="docs/figures/lc_kepler_global.png" alt="Mean Kepler global view for planet candidates and non-planet candidates" width="420">
-  <img src="docs/figures/lc_kepler_local.png" alt="Mean Kepler local view for planet candidates and non-planet candidates" width="420">
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/lc_kepler_global.png" alt="Mean Kepler global view for planet candidates and non-planet candidates" width="420">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/lc_kepler_local.png" alt="Mean Kepler local view for planet candidates and non-planet candidates" width="420">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <br>
+  <sub><i>Mean Kepler views. (a) Global. (b) Local. Planet candidates are orange. Non-planet candidates are blue. The band is the standard deviation.</i></sub>
 </p>
-
-<p align="center"><i>Mean Kepler global and local views. Planet candidates are orange. Non-planet candidates are blue. The band is the standard deviation.</i></p>
 
 <p align="center">
-  <img src="docs/figures/lc_tess_global.png" alt="Mean TESS global view" width="320">
-  <img src="docs/figures/lc_tess_local.png" alt="Mean TESS local view" width="320">
-  <img src="docs/figures/lc_tess_secondary.png" alt="Mean TESS secondary view" width="320">
+  <span style="display:inline-block;vertical-align:top;margin:0 8px 8px">
+    <img src="docs/figures/lc_tess_global.png" alt="Mean TESS global view" width="320">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 8px 8px">
+    <img src="docs/figures/lc_tess_local.png" alt="Mean TESS local view" width="320">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 8px 8px">
+    <img src="docs/figures/lc_tess_secondary.png" alt="Mean TESS secondary view" width="320">
+    <br>
+    <sub>(c)</sub>
+  </span>
+  <br>
+  <sub><i>The same comparison for the three TESS views. (a) Global. (b) Local. (c) Secondary.</i></sub>
 </p>
-
-<p align="center"><i>The same comparison for the three TESS views.</i></p>
 
 <p align="center">
-  <img src="docs/figures/kepler_scatter.png" alt="Kepler orbital period against transit duration" width="420">
-  <img src="docs/figures/tess_scatter.png" alt="TESS orbital period against transit duration" width="420">
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/kepler_scatter.png" alt="Kepler orbital period against transit duration" width="420">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/tess_scatter.png" alt="TESS orbital period against transit duration" width="420">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <br>
+  <sub><i>Orbital period against transit duration. The two classes overlap, so the shape of the light curve has to do the work. (a) Kepler. (b) TESS.</i></sub>
 </p>
 
-<p align="center"><i>Orbital period against transit duration. The two classes overlap, so the shape of the light curve has to do the work. Kepler is on the left, TESS on the right.</i></p>
-
-Labels for Kepler come from the Autovetter catalog for Q1–Q17 Data Release 24. Planet Candidate is the positive class. Astrophysical False Positive and Non-Transiting Phenomenon are negative. Unknown rows are dropped: **15,737** TCEs, **3,600** of them positive. TESS labels are the visual dispositions of Yu et al. for sectors 1–5: **493** planet candidates against eclipsing binaries, instrumental noise, variability, and junk, **14,480** TCEs after the cuts in the paper.
+Labels for Kepler come from the Autovetter catalog for Q1–Q17 Data Release 24. Unknown rows are dropped, and the set that remains is what this repository uses: **15,737** TCEs in total. **3,600** of those 15,737 are Planet Candidates, the positive class. The other **12,137** are Astrophysical False Positives and Non-Transiting Phenomena, the negative class. TESS labels start from the visual dispositions of Yu et al. for sectors 1–5. In that catalog, before any cut, there are **493** planet candidates, together with eclipsing binaries, instrumental noise, variability, and junk. The paper then removes TCEs with missing values, duplicate TCEs, and transits whose depth is zero or below. **14,480** TCEs are left. That number is the size of the TESS set, not a count of the junk class. **454** of the 14,480 are planet candidates, the positive class. The rest are negative.
 
 The split is 80% train, 10% validation, 10% test. Kepler is a shuffle with seed 0: **12,589 / 1,573 / 1,575** rows and **2,906 / 328 / 366** positives. TESS is the split already stored with the examples: **11,573 / 1,465 / 1,442** rows and **349 / 57 / 48** positives.
 
@@ -60,18 +88,32 @@ How the views were built from the spacecraft light curves is Section 3 of the pa
 
 ## The networks
 
-Each view goes through its own column. Two convolutions (kernel 10, 128 filters, ReLU) shorten the sequence, then an LSTM stack reads it. Global stacks are **500, 200, 100** units. Local and secondary stacks are **200, 100, 50**. Additive attention replaces the last LSTM state with a weighted sum of every state. The weights are
+Each view goes through its own column. Two convolutions (kernel 10, 128 filters, ReLU) shorten the sequence, then an LSTM stack reads it. Global stacks are **500, 200, 100** units. Local and secondary stacks are **200, 100, 50**.
 
-`score_j = v tanh(b_j + W h_j)`,
+An LSTM would normally pass on only its last state. The transit then has to remain inside that one vector after the network has read the rest of the view. Additive attention replaces the last state with a weighted sum of every state, so the column can put its weight on the bins that contain the transit.
 
-with one attention unit, then a softmax over time. The columns are concatenated, passed through three feed-forward layers of 150 ReLU units, and a sigmoid. On TESS the depth change joins that concatenation. The loss is binary cross-entropy. Adam uses β1 = 0.9, β2 = 0.999, and ε = 1e-8, which is the value in the training scripts. The paper text quotes the library default, 1e-7.
+The LSTM state at step j is the vector h_j. A learned matrix W, with one column, maps h_j to a single number. A learned bias b_j, one scalar for each time step, is added to it. Classification has no second sequence to compare against, so b_j is what lets the score depend on where the step sits in the view. tanh keeps that sum between −1 and 1, and a learned scalar v scales it into the score of the step. W and v are the paper's U_a and v_a.
+
+`score_j = v tanh(b_j + W h_j)`
+
+One attention unit means each step receives one score. A softmax over time turns those scores into weights that add up to 1. The vector passed on is Σ weight_j h_j.
+
+The columns are concatenated, passed through three feed-forward layers of 150 ReLU units, and a sigmoid. On TESS the depth change joins that concatenation. The loss is binary cross-entropy. Adam uses β1 = 0.9, β2 = 0.999, and ε = 1e-8. That ε is the value in the training scripts. The paper text quotes TensorFlow's default for Adam, 1e-7.
 
 <p align="center">
-  <img src="docs/figures/model_kepler.png" alt="Kepler network with a global column and a local column" width="360">
-  <img src="docs/figures/model_tess.png" alt="TESS network with global, local, and secondary columns plus depth change" width="460">
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/model_kepler.png" alt="Kepler network with a global column and a local column" width="360">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/model_tess.png" alt="TESS network with global, local, and secondary columns plus depth change" width="460">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <br>
+  <sub><i>Published architecture. (a) Kepler. (b) TESS. Attention adds 2,320 parameters on Kepler and 475 on TESS.</i></sub>
 </p>
-
-<p align="center"><i>Published architecture. Kepler on the left, TESS on the right. Attention adds 2,320 parameters on Kepler and 475 on TESS.</i></p>
 
 Five networks are trained from scratch on both missions. The first two read the views concatenated into one sequence. The last three use the columns above. Reported metrics are the mean and standard deviation of **10** random initializations. The decision threshold is 0.5.
 
@@ -83,13 +125,13 @@ Five networks are trained from scratch on both missions. The first two read the 
 | **Optimized + attention** | same | same | **2,754,173** | **3,339,154** |
 | Astronet / Astronet-Vetting | 50 epochs, 1e-5, batch 64 | 51 epochs, 1e-5, batch 64 | 8,793,313 | 2,216,593 |
 
-Astronet is the convolutional network of Shallue & Vanderburg. Astronet-Vetting is the TESS network of Yu et al., including the secondary view and the depth change. Both are reimplemented in Keras here.
+Astronet is the convolutional network of Shallue & Vanderburg for the Kepler dataset. Astronet-Vetting is the convolutional network of Yu et al. for the TESS dataset, including the secondary view and the depth change. Both are reimplemented in Keras here.
 
 ## What the study found
 
-On Kepler, attention is what makes the one-unit LSTM useful: AUC goes from **0.4988** to **0.9009**. The column model is already strong, and attention still raises every reported metric. It uses about a third of Astronet's parameters.
+On Kepler, attention is what makes the one-unit LSTM useful: AUC goes from **0.4988** to **0.9009**. The optimized model is already strong, and attention still raises every reported metric. It uses about a third of Astronet's parameters.
 
-On TESS the one-unit network never leaves the majority class, but its AUC rises from **0.4557** to **0.8981** once attention is added. The published column model is the most sensitive of the five and has the highest AUC. Astronet-Vetting is slightly more accurate and slightly more specific. TESS has **48** planet candidates in the test set, so the sensitivity of one run moves a lot.
+On TESS the one-unit network never leaves the majority class, but its AUC rises from **0.4557** to **0.8981** once attention is added. **Optimized + attention** is the most sensitive of the five and has the highest AUC. Astronet-Vetting is slightly more specific. TESS has **48** planet candidates in the test set, so the sensitivity of one run moves a lot.
 
 <table align="center">
   <thead>
@@ -121,24 +163,40 @@ On TESS the one-unit network never leaves the majority class, but its AUC rises 
 Attention on the published Kepler model sits on the transit. The peak is shifted a little toward egress: each convolutional step stands for itself and the 18 bins that follow it, and the LSTM then reads that sequence.
 
 <p align="center">
-  <img src="docs/figures/kepler_bahd_mod_glob_tp.png" alt="Kepler global-view attention for true positives" width="420">
-  <img src="docs/figures/kepler_bahd_mod_glob_tn.png" alt="Kepler global-view attention for true negatives" width="420">
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/kepler_bahd_mod_glob_tp.png" alt="Kepler global-view attention for true positives" width="420">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/kepler_bahd_mod_glob_tn.png" alt="Kepler global-view attention for true negatives" width="420">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <br>
+  <sub><i>Kepler global view, <b>Optimized + attention</b>. (a) True positives. (b) True negatives. Blue is the mean attention weight. Green is the mean flux.</i></sub>
 </p>
-
-<p align="center"><i>Kepler global view, optimized + attention. True positives on the left, true negatives on the right. Blue is the mean attention weight. Green is the mean flux.</i></p>
 
 <p align="center">
-  <img src="docs/figures/kepler_bahd_mod_loc_tp.png" alt="Kepler local-view attention for true positives" width="420">
-  <img src="docs/figures/kepler_bahd_mod_loc_tn.png" alt="Kepler local-view attention for true negatives" width="420">
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/kepler_bahd_mod_loc_tp.png" alt="Kepler local-view attention for true positives" width="420">
+    <br>
+    <sub>(a)</sub>
+  </span>
+  <span style="display:inline-block;vertical-align:top;margin:0 10px 8px">
+    <img src="docs/figures/kepler_bahd_mod_loc_tn.png" alt="Kepler local-view attention for true negatives" width="420">
+    <br>
+    <sub>(b)</sub>
+  </span>
+  <br>
+  <sub><i>Kepler local view, <b>Optimized + attention</b>, for the same two groups. (a) True positives. (b) True negatives. The weight stays high through the transit and after it.</i></sub>
 </p>
-
-<p align="center"><i>Kepler local view for the same two groups. The weight stays high through the transit and after it.</i></p>
 
 <p align="center">
   <img src="docs/figures/tess_bahd_mod_glob_tp.png" alt="TESS global-view attention for true positives" width="520">
+  <br>
+  <sub><i>TESS global view, <b>Optimized + attention</b>, true positives. The same transit-centered pattern shows up on the shorter sector light curves.</i></sub>
 </p>
-
-<p align="center"><i>TESS global view, true positives. The same transit-centered pattern shows up on the shorter sector light curves.</i></p>
 
 ## Run the code
 
